@@ -31,5 +31,6 @@ while running:
     run_sim()
     pygame.display.flip()
     clock.tick(60)  # Limit the loop to 60 frames per second.
+    pyg
 
 pygame.quit()
