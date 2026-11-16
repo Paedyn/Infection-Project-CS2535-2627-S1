@@ -7,8 +7,15 @@ def run_sim():
     stroke_colour = (20, 30, 50)
     stroke_width = 4
 
+    circles = [
+        (100, 100), (250, 100), (400, 100), (550, 100), (700, 100),
+        (100, 250), (250, 250), (400, 250), (550, 250), (700, 250),
+        (100, 400), (250, 400), (400, 400), (550, 400), (700, 400)
+    ]
+
     # Fill first, then draw the outline over the fill.
-    pygame.draw.circle(screen, fill_colour, centre, radius, width=0)
+   for center in circles
+       pygame.draw.circle(screen, fill_colour, centre, radius, width=0)
     pygame.draw.circle(screen, stroke_colour, centre, radius, width=stroke_width)
 
 
@@ -31,6 +38,4 @@ while running:
     run_sim()
     pygame.display.flip()
     clock.tick(60)  # Limit the loop to 60 frames per second.
-    pyg
-
 pygame.quit()
