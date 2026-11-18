@@ -4,7 +4,7 @@ Create a visual simulation of an infection spreading through a population. Users
 
 When the program starts, the user first interacts with a terminal menu. This menu lets them start a new simulation or view previous simulation data. It also provides the options to resume or rerun a saved simulation and exit the program. The Pygame simulation window opens when the user chooses to start, resume, or rerun a simulation.
 
-This project combines functions, modules, lists, dictionaries, and file handling. Build it in manageable stages. Start with the terminal menu and population data. Then add movement, infection rules, saving, and graphing. Test each feature as you add it. The [recommended development process](development_process.md) provides a suggested order, and the [How To references](_Help/How%20To) explain useful library features.
+This project combines functions, modules, lists, dictionaries, and file handling. Build it in manageable stages. Start with the terminal menu and population data. Then add movement, infection rules, saving, and graphing. Test each feature as you add it. The [recommended development process](development_process.md) provides a suggested order, and the [How To references](_Help/How%20To%20-%20CS25) explain useful library features.
 
 ## Project Requirements Checklist
 
@@ -39,9 +39,10 @@ This project combines functions, modules, lists, dictionaries, and file handling
 * [ ] The population size matches the user's population count.
 * [ ] The starting immune population is determined by the user's immunity percentage.
 * [ ] Infection checks use the user's transmissibility distance and infectiousness percentage.
-* [ ] Infection checks for immune people use the user's immunity efficacy percentage.
+* [ ] After an immune person is successfully infected from a regular infection check, check to see if their immunity protects them using the immunity efficacy percentage.
 * [ ] Daily death checks for infected people use the user's lethality percentage.
 * [ ] Daily recovery checks for infected people use the user's recoverability percentage.
+* [ ] A timer is used to simulate days where each day represents 5 seconds of normal time.
 
 ### Simulation Visualization and Controls
 
@@ -58,13 +59,12 @@ This project combines functions, modules, lists, dictionaries, and file handling
 * [ ] Resuming a simulation uses the CSV identified in its JSON save for subsequent daily records.
 * [ ] Pressing `q` quits the simulation.
 * [ ] Pressing Space pauses and unpauses the simulation.
-* [ ] Pressing `f` toggles fast-forward mode on and off.
+* [ ] Pressing `f` toggles fast-forward mode on and off. Fast forward should speed the simulation up to be 5 times faster.
 * [ ] The simulation ends automatically when there are no more infected people.
 
 ### Recorded Data and Graphs
 
 * [ ] At the end of every simulation day, a new row containing the day number and counts of infected, recovered, susceptible, and dead people is appended to the active CSV file.
-* [ ] Daily CSV recording happens automatically without requiring the user to press `s`.
 * [ ] Appending daily records preserves the existing rows in the CSV file.
 * [ ] The CSV file also records the trial's starting input values.
 * [ ] Each new simulation run, including a rerun of a saved simulation, creates a uniquely named CSV file without overwriting an existing run's file.
