@@ -28,7 +28,7 @@ population = []
 
 for centre in circles:
 
-    velocity = pygame.Vector2(3, 0)
+    velocity = pygame.Vector2(300, 0)
     velocity = velocity.rotate(random.randint(0, 360))
 
     person = {
@@ -44,7 +44,7 @@ for centre in circles:
 
 def run_sim():
 
-    seconds = clock.get_time()
+    seconds = clock.get_time() / 1000
 
     for person in population:
 
