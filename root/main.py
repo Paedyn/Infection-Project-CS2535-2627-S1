@@ -2,7 +2,7 @@ import pygame
 import random
 
 pygame.init()
-screen = pygame.display.set_mode((800, 800))
+screen = pygame.display.set_mode((800, 700))
 pygame.display.set_caption("Plague Simulator")
 clock = pygame.time.Clock()
 
@@ -16,6 +16,8 @@ colours = {
 }
 
 radius = 25
+infection_percentage=0.5
+infection_radius=radius*1.5
 
 circles = [
     (100, 100), (250, 100), (400, 100), (550, 100), (700, 100),
@@ -40,6 +42,18 @@ for centre in circles:
     }
 
     population.append(person)
+    population[0]["status"] = "infected"
+#SUSPECTIBLE IF WITHINT INFECTED RADIUS
+
+# def spread_infection():
+#     for infected in population:
+#         if infected["status"]=="infected":
+#             if
+
+
+
+
+
 
 
 def run_sim():
@@ -80,7 +94,7 @@ while running:
     for event in events:
         if event.type == pygame.quit:
             running = False
-            SECONDS_PER_DAY = 5.0
+            seconds_per_day = 5.0
             calendar = {"day": 0, "elapsed_seconds": 0.0}
 
 
@@ -89,8 +103,8 @@ while running:
                 calendar["elapsed_seconds"] += seconds
 
                 # Process every complete day and preserve the leftover time.
-                while calendar["elapsed_seconds"] >= SECONDS_PER_DAY:
-                    calendar["elapsed_seconds"] -= SECONDS_PER_DAY
+                while calendar["elapsed_seconds"] >= seconds_per_day:
+                    calendar["elapsed_seconds"] -= seconds_per_day
                     calendar["day"] += 1
                     print(f"Day {calendar['day']} completed")
                     # Record counts or apply daily simulation rules here.
