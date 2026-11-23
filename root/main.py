@@ -1,5 +1,6 @@
 import pygame
 import random
+import math
 
 pygame.init()
 screen = pygame.display.set_mode((800, 700))
@@ -44,16 +45,16 @@ for centre in circles:
     population.append(person)
     population[0]["status"] = "infected"
 #SUSPECTIBLE IF WITHINT INFECTED RADIUS
-
-# def spread_infection():
-#     for infected in population:
-#         if infected["status"]=="infected":
-#             if
-
-
-
-
-
+for infected in population:
+     if infected["status"] == "infected":
+         for susceptible in population:
+             if susceptible["status"] == "susceptible":
+                  x_distance = infected["x"] - susceptible["x"]
+                  y_distance = infected["y"] - susceptible["y"]
+                  distance = math.sqrt(x_distance ** 2 + y_distance ** 2)
+                  if distance <= infection_radius:
+                      if random.random() < infection_percentage:
+                          susceptible["status"] = "infected"
 
 
 def run_sim():
@@ -102,12 +103,12 @@ while running:
                 seconds = clock.get_time() / 1000
                 calendar["elapsed_seconds"] += seconds
 
-                # Process every complete day and preserve the leftover time.
+
                 while calendar["elapsed_seconds"] >= seconds_per_day:
                     calendar["elapsed_seconds"] -= seconds_per_day
                     calendar["day"] += 1
                     print(f"Day {calendar['day']} completed")
-                    # Record counts or apply daily simulation rules here.
+
 
                 pygame.display.set_caption(f"Simulation day: {calendar['day']}")
 
